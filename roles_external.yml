@@ -1,0 +1,6 @@
+---
+# Why: Lazy public key management via GitHub!
+- src: geerlingguy.github-users
+
+# Why: Managing sudo file
+- src: weareinteractive.sudo

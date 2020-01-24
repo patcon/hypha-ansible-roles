@@ -1,0 +1,4 @@
+---
+- hosts: mailcow
+  roles:
+        - common

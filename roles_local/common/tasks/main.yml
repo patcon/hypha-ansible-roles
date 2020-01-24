@@ -1,0 +1,33 @@
+---
+- name: Create user accounts and public keys from GitHub
+  include_role:
+    name: geerlingguy.github-users
+
+  vars:
+    github_users:
+      # Infra WG members get passwordless sudo
+      - name: ASoTNetworks
+        groups: sudo
+      - name: dcwalk
+        groups: sudo
+      - name: patcon
+        groups: sudo
+      - name: YurkoWasHere
+        groups: sudo
+
+      # Remaining users
+      - benhylau
+      - garrying
+      - patcon
+      - uditvira
+    github_users_authorized_keys_exclusive: true
+
+- name: Ensure sudo users are passwordless
+  include_role:
+    name: weareinteractive.sudo
+
+  vars:
+    sudo_users:
+      - name: '%sudo'
+        nopasswd: yes
+
